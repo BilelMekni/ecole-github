@@ -1,0 +1,122 @@
+<app-banner title="CONTACT"></app-banner>
+<main id="main">
+
+   
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>25 Rue republique Tunisie</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>myschool@outlook.tn</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+21671200300</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>Contact</h1>
+
+            <form  [formGroup]="contactForm" action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name"  formControlName="nomPrenom"  placeholder="Nom et Prenom" required>
+                </div>
+                <div *ngIf="contactForm.controls['nomPrenom'].invalid && (contactForm.controls['nomPrenom'].touched ||
+                contactForm.controls['nomPrenom'].dirty)">
+                <div *ngIf="contactForm.controls['nomPrenom'].errors.required" class="red">
+                  Nom et prenom et obligatoire
+                </div>
+                <div *ngIf="contactForm.controls['nomPrenom'].errors.minlength" class="red">
+                  Nom et prenom contient 3 caractere minimum
+                </div>
+                <div *ngIf="contactForm.controls['nomPrenom'].errors.maxlength" class="red">
+                  Nom et prenom contient 20 caractere maximumu
+                </div>
+
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Adresse Email" required>
+                </div>
+                <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].touched ||
+                contactForm.controls['email'].dirty)">
+                <div *ngIf="contactForm.controls['email'].errors.required" class="red">
+                  Email et obligatoire
+                </div>
+                <div *ngIf="contactForm.controls['email'].errors.email" class="red">
+                  Email est non valide
+                </div>
+
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" formControlName="titre" placeholder="Titre" required>
+              </div>
+              <div *ngIf="contactForm.controls['titre'].invalid && (contactForm.controls['titre'].touched ||
+              contactForm.controls['titre'].dirty)">
+              <div *ngIf="contactForm.controls['titre'].errors.required" class="red">
+                Titre et obligatoire
+              </div>
+              <div *ngIf="contactForm.controls['titre'].errors.minlength" class="red">
+                Titre contient 3 caractere minimum
+              </div>
+              <div *ngIf="contactForm.controls['titre'].errors.maxlength" class="red">
+                Titre contient 40 caractere maximumu
+              </div>
+
+
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" formControlName="message" placeholder="Message" required></textarea>
+              </div>
+              <div *ngIf="contactForm.controls['message'].invalid && (contactForm.controls['message'].touched ||
+              contactForm.controls['message'].dirty)">
+              <div *ngIf="contactForm.controls['message'].errors.required" class="red">
+                Message et obligatoire
+              </div>
+              <div *ngIf="contactForm.controls['message'].errors.minlength" class="red">
+                Message contient 3 caractere minimum
+              </div>
+              <div *ngIf="contactForm.controls['message'].errors.maxlength" class="red">
+                Message contient 300 caractere maximumu
+              </div>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button (click)="envoyerMessage()"  type="submit">Envoyer Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->

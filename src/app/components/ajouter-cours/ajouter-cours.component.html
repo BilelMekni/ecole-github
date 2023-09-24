@@ -1,0 +1,96 @@
+<app-banner title="AJOUTER COURS"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>AJOUTER COURS</h1>
+
+          <form [formGroup]="coursForm"     action="forms/contact.php" method="post" role="form" class="php-email-form">
+            
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="text" id="text" formControlName="titre"  placeholder="Entrer Titre" required>
+            </div>
+            <div *ngIf="coursForm.controls['titre'].invalid && (coursForm.controls['titre'].touched ||
+            coursForm.controls['titre'].dirty)">
+            <div *ngIf="coursForm.controls['titre'].errors.required" class="red" >
+              Titre is required
+            </div>
+            <div *ngIf="coursForm.controls['titre'].errors.minlength" class="red" >
+              Titre must have at least 3 chars
+            </div>
+            <div *ngIf="coursForm.controls['titre'].errors.maxlength" class="red" >
+              Titre must have at most 20 chars
+            </div>
+
+            </div>
+           
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="ref" id="ref"  formControlName="reference"  placeholder="Entrer Reference" required>
+              </div>
+              <div  *ngIf="coursForm.controls['reference'].invalid && (coursForm.controls['reference'].touched ||
+              coursForm.controls['reference'].dirty)">
+              <div *ngIf="coursForm.controls['reference'].errors.required" class="red" >
+                Reference is required
+              </div>
+              <div *ngIf="coursForm.controls['reference'].errors.minlength" class="red" >
+                Reference must have at least 5 chars
+              </div>
+              <div *ngIf="coursForm.controls['reference'].errors.maxlength" class="red" >
+                Reference must have at most 10 chars
+              </div>
+
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="sec" id="sec"  formControlName="section" placeholder="Entrer Section" required>
+              </div>
+              <div *ngIf="coursForm.controls['section'].invalid && (coursForm.controls['section'].touched ||
+              coursForm.controls['section'].dirty)" >
+              <div *ngIf="coursForm.controls['section'].errors.required" class="red" >
+                Section is required
+              </div>
+              <div *ngIf="coursForm.controls['section'].errors.minlength" class="red" >
+                Section must have at least 3 chars
+              </div>
+              <div *ngIf="coursForm.controls['section'].errors.maxlength" class="red" >
+                Section must have at most 20 chars
+              </div>
+
+
+              </div>
+              <!-- <div class="form-group" style="visibility: hidden;">
+                <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)">
+              </div>
+              <div class="text-center">
+                <button class="btn btn-info" (click)="filePicker.click()">Please select your avatar</button>
+               <br>
+               <img [src]="imagePreview" *ngIf="imagePreview"
+               class="pt-3 pb-3" width="200px" height="200px" alt="">
+             </div> -->
+              <div class="form-group" style="visibility: hidden;">
+                <input type="file" class="form-control" #pdf (change)="onCoursSelected($event)">
+              </div>
+               <div class="text-center">
+                <button class="btn btn-info" (click)="pdf.click()">Please select your cours </button>
+               <br>
+                <iframe [src]="coursPreview | cours" *ngIf="coursPreview"  
+                 class="pt-3 pb-3" width="200px" height="200px" alt=""></iframe>   
+             </div> 
+             <br>
+            <div class="text-center"><button (click)="ajouterCours()"  type="submit">AJOUTER</button></div> <br>
+            <div class="text-center"><button  (click)="retour()"  type="submit">RETOUR</button></div>
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/ajouter.png" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

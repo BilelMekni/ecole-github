@@ -1,0 +1,13 @@
+.img-fluid{
+    left:790px;
+ top:42px;
+ position:absolute;
+}
+h1{
+    color: blue;
+    background-color: mediumseagreen;
+    text-align: center;
+}
+.red{
+    color: red;
+}

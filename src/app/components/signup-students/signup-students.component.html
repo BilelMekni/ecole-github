@@ -1,0 +1,199 @@
+<app-banner title="SIGNUP STUDENTS"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>INSCRIPTION ELEVES</h1>
+
+          <form [formGroup]="signupForm" action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" formControlName="firstName" placeholder="Your First Name" required>
+              </div>
+              <div *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched ||
+              signupForm.controls['firstName'].dirty)">
+              <div *ngIf="signupForm.controls['firstName'].errors.required" class="red" >
+                FirstName is required
+              </div>
+              <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="red">
+                FirstName must have at last 3 chars
+              </div>
+              <div *ngIf="signupForm.controls['firstName'].errors.maxlength" class="red">
+                FirstName must have at most 20 chars
+  
+              </div>
+
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName" placeholder="Your Last Name" required>
+              </div>
+              <div *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched ||
+              signupForm.controls['lastName'].dirty)">
+              <div *ngIf="signupForm.controls['lastName'].errors.required" class="red">
+                Last Name is required
+              </div>
+              <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="red">
+                Last Name must have at last 3 chars
+              </div>
+              <div *ngIf="signupForm.controls['lastName'].errors.maxlength" class="red">
+                Last Name must have at most 20 chars
+              </div>
+
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Your Email" required>
+            </div>
+            <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched ||
+              signupForm.controls['email'].dirty)">
+              <div *ngIf="signupForm.controls['email'].errors.required" class="red">
+                Email is required
+              </div>
+              <div *ngIf="signupForm.controls['email'].errors.email" class="red">
+                Email is invalid
+              </div>
+
+              </div>
+            
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="tel" id="tel" formControlName="telephone" placeholder="Your Telephone" required>
+              </div>
+              <div *ngIf="signupForm.controls['telephone'].invalid && (signupForm.controls['telephone'].touched ||
+              signupForm.controls['telephone'].dirty)">
+              <div *ngIf="signupForm.controls['telephone'].errors.required" class="red">
+                Telephone is required
+              </div>
+              <div *ngIf="signupForm.controls['telephone'].errors.maxlength" class="red">
+                Telephone must have at last 8 number
+              </div>
+              <div *ngIf="signupForm.controls['telephone'].errors.minlength" class="red">
+                Telephone must have at most 8 number
+              </div>
+
+              </div>
+              <div class="form-group mt-3">
+                <input type="date" class="form-control" name="date" id="date" formControlName="date" placeholder="Your Date de naissance" required>
+              </div>
+              <div *ngIf="signupForm.controls['date'].invalid && (signupForm.controls['date'].touched ||
+              signupForm.controls['date'].dirty)">
+              <div *ngIf="signupForm.controls['date'].errors.required" class="red">
+                Data de naissance is required
+              </div>
+
+              </div>
+              <div class=" form-group mt-3 ">
+                <input type="text" class="form-control" name="adresse" id="adr" formControlName="adresse" placeholder="Your Adresse" required>
+              </div>
+              <div *ngIf="signupForm.controls['adresse'].invalid && (signupForm.controls['adresse'].touched ||
+              signupForm.controls['adresse'].dirty)">
+              <div *ngIf="signupForm.controls['adresse'].errors.required" class="red">
+                Adresse is required
+              </div>
+              <div *ngIf="signupForm.controls['adresse'].errors.minlength" class="red">
+                Adresse must have at last 3 chars
+              </div>
+              <div *ngIf="signupForm.controls['adresse'].errors.maxlength" class="red">
+                Adresse must have at most 50 chars
+              </div>
+
+              </div>
+            
+              <div class="form-group mt-3">
+                <input type="password" class="form-control" name="pwd" id="pwd" formControlName="password" placeholder="Your Password" required>
+              </div>
+              <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].touched ||
+              signupForm.controls['password'].dirty)">
+              <div *ngIf="signupForm.controls['password'].errors.required" class="red">
+                Password is required
+              </div>
+              <div *ngIf="signupForm.controls['password'].errors.maxlength" class="red">
+                Password must have at last 50 chars or number
+              </div>
+              <div *ngIf="signupForm.controls['password'].errors.minlength" class="red">
+                Password must have at most 8 chars or number
+              </div>
+
+              </div>
+              <div class="form-group mt-3">
+                <input type="password" class="form-control" name="cPwd" id="cPwd" formControlName="confPassword" placeholder="Your Confirme Password" required>
+              </div>
+              <div *ngIf="signupForm.controls['confPassword'].invalid && (signupForm.controls['confPassword'].touched ||
+              signupForm.controls['confPassword'].dirty)">
+              <div *ngIf="signupForm.controls['confPassword'].errors.confirmError" class="red">
+                Confirm Pwd does not match PWD.
+              </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+              <select class="custom-select" formControlName="section" >
+                <option selected>Section</option>
+                <option value="Letteres">Letteres</option>
+                <option value="Science Informatique">Science Informatique</option>
+                <option value="Science Experimentale">Science Experimentale</option>
+                <option value="Science Technique">Science Technique</option>
+                <option value="Economie Et Gestion">Economie Et Gestion</option>
+                <option value="Mathematiques">Mathematiques</option>
+                <option value="Sport">Sport</option>
+            
+              </select>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+              
+              <select class="custom-select " formControlName="niveau">
+                <option selected>Niveau Scolaire</option>
+                <option value="1">Premiere Année</option>
+                <option value="2">Deuxieme Année</option>
+                <option value="3">Troisieme Année</option>
+                <option value="3">Quatrieme Année</option>
+              </select>
+            </div>
+            
+              </div>
+           
+              <div style="margin-top:10px;" class="row">
+                <p>Gender :</p>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="gender" value="0"  formControlName="gender" class="custom-control-input">
+                            <label class="custom-control-label"  for="customRadio1">Man</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="gender" value="1"  formControlName="gender" class="custom-control-input">
+                            <label class="custom-control-label"  for="customRadio2">Woman</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="gender" value="-1" formControlName="gender" class="custom-control-input">
+                            <label class="custom-control-label"  for="customRadio2">Other</label>
+                          </div>
+    
+                </div>
+                <div class="form-group" style="visibility: hidden;">
+                  <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)">
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-info" (click)="filePicker.click()">Please select your avatar</button>
+                 <br>
+                 <img [src]="imagePreview" *ngIf="imagePreview"
+                 class="pt-3 pb-3" width="200px" height="200px" alt="">
+               </div><br>
+            <div class="text-center"><button  (click)="signup()" [disabled]="signupForm.invalid"  type="submit">INSCRIPTION ELEVES</button></div>
+            <br>
+            ou bien se connecter : 
+            <div class="btn btn-warning"><button  (click)="login()" type="submit"  >SE CONNECTER</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/stu.avif" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

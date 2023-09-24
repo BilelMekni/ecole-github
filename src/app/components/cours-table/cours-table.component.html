@@ -1,0 +1,43 @@
+<h1>Listes Des Cours</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Images</th>
+      <th scope="col">ID</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Reference</th>
+      <th scope="col">Section</th>
+      <th scope="col">Status</th>
+      <th scope="col">Cours</th>
+      <th scope="col">NomEnseignants</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of pageOfItems">
+      <td><img class="img-fluid" src="assets/img/rrr.png" alt="" /></td>
+      <th scope="row">{{c._id}}</th>
+      <td>{{c.titre}}</td>
+      <td>{{c.reference}}</td>
+      <td>{{c.section}}</td>
+      <td>{{c.status}}</td>
+      <td>{{c.cours}}</td>
+      <td>{{c.box[0]?.firstName}}{{c.box[0]?.lastName}}</td>
+      <td>{{c.box[0]?.telephone}}</td>
+      <td>{{c.box[0]?.adresse}}</td>
+      <td>
+        <button type="button" (click)="confirmeCours(c._id)" > <img src="assets/img/conf.jpg" height ="50" width="50" /></button>
+        <button type="button" (click)="modifierCours(c._id)" > <img src="assets/img/edit.png" height ="50" width="50" /></button>
+        <button type="button" (click)="deleteCoursEleves(c._id)" > <img src="assets/img/delet.png" height ="50" width="50" /></button>
+      </td>
+    </tr>
+
+
+  </tbody>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="tests"  [pageSize]="4"  (changePage)="onChangePage($event)"></jw-pagination>
+   </div>
+</table>

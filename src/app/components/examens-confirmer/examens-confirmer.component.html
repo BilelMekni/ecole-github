@@ -1,0 +1,35 @@
+<app-banner title="EXAMENS DES ELEVES CONFIRMER"></app-banner>
+<h1>BIENVENUE EXAMENS DES ELEVES CONFIRMES</h1>
+<table class="table table-hover table-danger">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Titre</th>
+        <th scope="col">NomExamens</th>
+        <th scope="col">Date</th>
+        <th scope="col">Heure</th>
+        <th scope="col">Salle</th>
+        <th scope="col">Nom && PrenomEnseignants</th>
+        <th scope="col">Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/exam.avif" alt="" /></td>
+        <td>{{exam.titre}}</td>
+        <td>{{exam.nom}}</td>
+        <td>{{exam.date}}</td>
+        <td>{{exam.heure}}</td>
+        <td>{{exam.salle}}</td>
+        <td>{{exam.teachers[0]?.firstName}} && {{exam.teachers[0]?.lastName}}</td>
+       <td> {{exam.teachers[0]?.telephone}}</td>
+      </tr>
+      
+     
+    </tbody>
+    <button type="button" (click)="retour()" class="get-started-btn">Retour</button>
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="examens" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

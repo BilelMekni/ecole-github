@@ -1,0 +1,102 @@
+<app-banner title="MODIFIER ELEVES"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>MODIFICATIONS ELEVES</h1>
+
+          <form [formGroup]="modifierForm" action="forms/contact.php" method="post" role="form" class="php-email-form">
+           
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="tel" id="tel" formControlName="telephone" placeholder="Your Telephone" required>
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].invalid && (modifierForm.controls['telephone'].touched ||
+              modifierForm.controls['telephone'].dirty)">
+              <div *ngIf="modifierForm.controls['telephone'].errors.required" class="red">
+                Telephone is required
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].errors.maxlength" class="red">
+                Telephone must have at last 8 number
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].errors.minlength" class="red">
+                Telephone must have at most 8 number
+              </div>
+
+              </div>
+              <div class="form-group mt-3">
+                <input type="date" class="form-control" name="date" id="date" formControlName="date" placeholder="Your Date de naissance" required>
+              </div>
+              <div *ngIf="modifierForm.controls['date'].invalid && (modifierForm.controls['date'].touched ||
+              modifierForm.controls['date'].dirty)">
+              <div *ngIf="modifierForm.controls['date'].errors.required" class="red">
+                Data de naissance is required
+              </div>
+
+              </div>
+              <div class=" form-group mt-3 ">
+                <input type="text" class="form-control" name="adresse" id="adr" formControlName="adresse" placeholder="Your Adresse" required>
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].invalid && (modifierForm.controls['adresse'].touched ||
+              modifierForm.controls['adresse'].dirty)">
+              <div *ngIf="modifierForm.controls['adresse'].errors.required" class="red">
+                Adresse is required
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].errors.minlength" class="red">
+                Adresse must have at last 3 chars
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].errors.maxlength" class="red">
+                Adresse must have at most 50 chars
+              </div>
+
+              </div>
+            
+            
+              <div class="row">
+                <div class="col-md-6 form-group">
+              <select class="custom-select" formControlName="section" >
+                <option selected>Section</option>
+                <option value="Letteres">Letteres</option>
+                <option value="Science Informatique">Science Informatique</option>
+                <option value="Science Experimentale">Science Experimentale</option>
+                <option value="Science Technique">Science Technique</option>
+                <option value="Economie Et Gestion">Economie Et Gestion</option>
+                <option value="Mathematiques">Mathematiques</option>
+                <option value="Sport">Sport</option>
+            
+              </select>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+              
+              <select class="custom-select " formControlName="niveau">
+                <option selected>Niveau Scolaire</option>
+                <option value="1">Premiere Année</option>
+                <option value="2">Deuxieme Année</option>
+                <option value="3">Troisieme Année</option>
+                <option value="4">Quatrieme Année</option>
+              </select>
+            </div>
+            
+              </div>
+           
+           
+            <div class="text-center"><button  (click)="modifier()"   type="submit">MODIFIER ELEVES</button></div>
+            <br>
+            
+            <div class="btn btn-warning"><button  (click)="retour()" type="submit"  >RETOUR</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/student.webp" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

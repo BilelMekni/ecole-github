@@ -1,0 +1,42 @@
+<app-banner title="Reponse Exercice"></app-banner>
+
+<main id="main">
+
+    
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          
+        <h1>Envoyer Reponse Aux Eleves</h1>
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form #signupForm="ngForm" (ngSubmit)="signup()"   action="forms/contact.php" method="post" role="form" class="php-email-form">
+              
+              <div class="form-group mt-3">
+                <input type="text" class="form-control"   [(ngModel)]="signup.subject"  [ngModelOptions]="{standalone: true}"  placeholder="Subject">
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control"  [(ngModel)]="signup.message"  [ngModelOptions]="{standalone: true}"  placeholder="Message"></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit" (click)="send()">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->

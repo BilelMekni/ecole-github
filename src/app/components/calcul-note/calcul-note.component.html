@@ -1,0 +1,15 @@
+<app-banner title="CALCULER NOTES"></app-banner>
+<section>
+  <form (ngSubmit)="calculerMoyenne()">
+    <div *ngFor="let note of notes; let i = index">
+      <label>Note {{i + 1}} :</label>
+      <input type="number" [(ngModel)]="notes[i]">
+      <label>Coefficient :</label>
+      <input type="number" [(ngModel)]="coefficients[i]">
+    </div>
+    <button type="submit">Calculer</button>
+    <p *ngIf="moyenne !== 0">La moyenne est : {{ moyenne }}</p>
+  </form>
+</section>
+
+  

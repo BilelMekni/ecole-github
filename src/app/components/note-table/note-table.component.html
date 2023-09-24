@@ -1,0 +1,50 @@
+<h1>Notes Des Eleves</h1>
+<table class="table table-bordered table-danger">
+    <thead>
+        <tr>
+            <th scope="col">Images</th>
+            <th scope="col">ID</th>
+            <th scope="col">NomEleves</th>
+            <th scope="col">NomMatiere</th>
+            <th scope="col">Section</th>
+            <th scope="col">Niveau</th>
+            <th scope="col">Note</th>
+            <th scope="col">Coefficient</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Remarque</th>
+            <th scope="col">Status</th>
+            <th scope="col">NomEnseignants</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let n of pageOfItems">
+            <td><img class="img-fluid" src="assets/img/nnn.ico" alt="" /></td>
+            <th scope="row">{{n._id}}</th>
+            <th scope="row">{{n.nomeleve}}</th>
+            <td>{{n.nom}}</td>
+            <td>{{n.section}}</td>
+            <td>{{n.niveau}}</td>
+            <td>{{n.note}}</td>
+            <td>{{n.coefficient}}</td>
+            <td>{{n.semester}}</td>
+            <td>{{n.remarque}}</td>
+            <td>{{n.status}}</td>
+            <td>{{n.notes[0]?.firstName}} {{n.notes[0]?.lastName}}</td>
+         <td>{{n.notes[0]?.telephone}}</td>
+            <td>
+                <button type="button" (click)="confirmeNotes(n._id)" > <img src="assets/img/conf.jpg" height ="50" width="50" /></button>
+                <!-- <button type="button" (click)="confirmeNotes(n._id)" class="btn btn-info">Confirmer</button> -->
+                <button type="button" (click)="editNotesEleves(n._id)"  > <img src="assets/img/edit.png" height ="50" width="50" /></button>
+                <button type="button" (click)="deleteNotesEleves(n._id)"  > <img src="assets/img/delet.png" height ="50" width="50" /></button>
+            </td>
+        </tr>
+
+
+    </tbody>
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination 
+       [items]="notes"  [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+       </div>
+</table>

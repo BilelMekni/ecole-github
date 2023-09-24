@@ -1,0 +1,12 @@
+.section-title{
+    
+    text-align: center;
+   
+    /* background-color: burlywood; */
+}
+.pp{
+    color: blue;
+    size: 100px;
+    background-color: burlywood;
+    text-decoration: underline;
+}

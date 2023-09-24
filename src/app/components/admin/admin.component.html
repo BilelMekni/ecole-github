@@ -1,0 +1,66 @@
+<app-banner title="ADMIN"></app-banner>
+<h1>Verification Par Admin</h1>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="admin-tab" data-bs-toggle="pill" data-bs-target="#admin" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Admin</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="teachers-tab" data-bs-toggle="pill" data-bs-target="#teachers" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Teachers</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="students-tab" data-bs-toggle="pill" data-bs-target="#students" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Students</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="publication-tab" data-bs-toggle="pill" data-bs-target="#publication" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Publications Generale</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="note-tab" data-bs-toggle="pill" data-bs-target="#note" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Notes Des Eleves</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="cour-tab" data-bs-toggle="pill" data-bs-target="#cour" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Cours Des Eleves</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="examen-tab" data-bs-toggle="pill" data-bs-target="#examen" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Examens Des Eleves</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pulications-eleves-tab" data-bs-toggle="pill" data-bs-target="#publ" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Publications Des Eleves</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="pill" data-bs-target="#contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Voir Contact</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="reponder-tab" data-bs-toggle="pill" data-bs-target="#reponder" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Repondre Reponse</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-table">
+    <app-admin-table></app-admin-table>
+  </div>
+  <div class="tab-pane fade" id="teachers" role="tabpanel" aria-labelledby="teachers-table">
+    <app-teachers-table></app-teachers-table>
+  </div>
+  <div class="tab-pane fade" id="students" role="tabpanel" aria-labelledby="students-table">
+    <app-students-table></app-students-table>
+  </div>
+  <div class="tab-pane fade" id="publication" role="tabpanel" aria-labelledby="publication-table">
+    <app-publication-table></app-publication-table>
+  </div>
+  <div class="tab-pane fade" id="note" role="tabpanel" aria-labelledby="note-table">
+    <app-note-table></app-note-table>
+  </div>
+  <div class="tab-pane fade" id="cour" role="tabpanel" aria-labelledby="cour-table">
+    <app-cours-table></app-cours-table>
+  </div>
+  <div class="tab-pane fade" id="examen" role="tabpanel" aria-labelledby="examen-table">
+    <app-examen-table></app-examen-table>
+  </div>
+  <div class="tab-pane fade" id="publ" role="tabpanel" aria-labelledby="publications-eleves-tables">
+    <app-publications-eleves-tables></app-publications-eleves-tables>
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-table">
+    <app-contact-table></app-contact-table>
+  </div>
+  <div class="tab-pane fade" id="reponder" role="tabpanel" aria-labelledby="repondre-table">
+    <app-repondre-table></app-repondre-table>
+  </div>
+</div>

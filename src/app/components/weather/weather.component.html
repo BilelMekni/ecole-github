@@ -1,0 +1,76 @@
+<app-banner [title]="title"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>{{logoTitle}}</h1>
+
+          <form [formGroup]="searchForm"  action="forms/contact.php" method="post" role="form" class="php-email-form">
+            
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="weth" id="weth"  formControlName="ville" [placeholder]="placeHolderTitle" required>
+              </div>
+              <div *ngIf="searchForm.controls['ville'].invalid && (searchForm.controls['ville'].touched ||
+              searchForm.controls['ville'].dirty)">
+              <div *ngIf="searchForm.controls['ville'].errors.required" class="red">
+                {{errorTitle}} est obligatoire
+            </div>
+            <div *ngIf="searchForm.controls['ville'].errors.minlength"  class="red">
+               {{errorTitle}} contient 4 min charactere
+            </div>
+            <div *ngIf="searchForm.controls['ville'].errors.maxlength" class="red">
+                {{errorTitle}} contient 20 max charactere
+            </div>
+
+              </div>
+              
+            <div class="text-center"><button (click)="search()"   type="submit">Rechercher</button></div>
+           
+            <div class="weather" *ngIf="weatherResult">
+              <h1>Liste des temps</h1>
+              <p class="temp" >Temperature: {{weatherResult?.temperature}}</p>
+              <img class="tempp" src="assets/img/temp.png" alt="" />
+              <p class="humd">Humidity: {{weatherResult?.humidity}}</p>
+              <img class="tempp" src="assets/img/humd.png" alt="" />
+              <p class="wind">Wind: {{weatherResult?.wind}}</p>
+              <img class="tempp" src="assets/img/wind.png" alt="" /><br>
+              <label class="icon">Icone:</label><br>
+              <img class="tempp" src="assets/img/icc.jpg" alt="" />
+              <p ><img [src]="weatherResult?.icone" alt="" ></p>
+            </div>
+            <table class="table table-danger" *ngIf="teamsResult">
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Founded</th>
+                <th>Logo</th>
+
+              </tr>
+              <tr *ngFor="let team of teamsResult">
+                <td>{{team.id}}</td>
+                <td>{{team.name}}</td>
+                <td>{{team.founded}}</td>
+                <td><img [src]="team.logo" alt=""></td>
+
+
+              </tr>
+            </table>
+          </form>
+
+        </div>
+        <div style="margin:100px" class="serv"> 
+        <img class="img-fluid" src="{{image}}" alt="" />
+</div>
+
+      </div>
+
+
+
+    </div>
+  </section>

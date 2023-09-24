@@ -1,0 +1,31 @@
+<app-banner title="VOIR REPONSE PUBLICATIONS"></app-banner>
+<h1>Reponse Accepter</h1>
+<table class="table table-success">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Message</th>
+        <th scope="col">Nom&&Prenom</th>
+        <th scope="col">Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pub of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/icone.png" alt="" /></td>
+        <td>{{pub.titre}}</td>
+        <td>{{pub.message}}</td>
+        <td>{{pub.teachers[0]?.firstName}} && {{pub.teachers[0]?.lastName}}</td>
+        <td>{{pub.teachers[0]?.telephone}}</td>
+        
+      </tr>
+      
+    </tbody>
+    <button type="button" (click)="retour()" class="get-started-btn">Retour</button>
+    
+    
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="voir" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

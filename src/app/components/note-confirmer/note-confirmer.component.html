@@ -1,0 +1,42 @@
+<app-banner title="NOTES DES ELEVES CONFIRMER"></app-banner>
+<h1>BIENVENUE AU LISTE DES NOTES DES ELEVES</h1>
+<table class="table table-hover table-success">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">NomEleves</th>
+        <th scope="col">NomMatiere</th>
+        <th scope="col">Section</th>
+        <th scope="col">Niveau</th>
+        <th scope="col">Note</th>
+        <th scope="col">Coefficient</th>
+        <th scope="col">Semester</th>
+        <th scope="col">Remarque</th>
+        <th scope="col">Nom && PrenomEnseignants</th>
+        <th scope="col">Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/not.png" alt="" /></td>
+        <th scope="row" >{{note.nomeleve}}</th>
+        <td>{{note.nom}}</td>
+        <td>{{note.section}}</td>
+        <td>{{note.niveau}}</td>
+        <td>{{note.note}}</td>
+        <td>{{note.coefficient}}</td>
+        <td>{{note.semester}}</td>
+        <td>{{note.remarque}}</td>
+        <td>{{note.teachers[0]?.firstName}} && {{note.teachers[0]?.lastName}}</td>
+        <td>{{note.teachers[0]?.telephone}}</td>
+      </tr>
+      
+    </tbody>
+    <button type="button" (click)="retour()" class="get-started-btn">Retour</button>
+  
+
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="moyenne" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

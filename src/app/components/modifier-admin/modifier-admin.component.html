@@ -1,0 +1,111 @@
+<app-banner title="Modifier Admin"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>INSCRIPTION ADMIN</h1>
+
+          <form [formGroup]="modifierForm"    action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" formControlName="firstName" placeholder="Your First Name" required>
+              </div>
+              <div *ngIf="modifierForm.controls['firstName'].invalid && (modifierForm.controls['firstName'].touched ||
+              modifierForm.controls['firstName'].dirty)">
+              <div *ngIf="modifierForm.controls['firstName'].errors.required" class="red" >
+                FirstName is required
+              </div>
+              <div *ngIf="modifierForm.controls['firstName'].errors.minlength" class="red">
+                FirstName must have at last 3 chars
+              </div>
+              <div *ngIf="modifierForm.controls['firstName'].errors.maxlength" class="red">
+                FirstName must have at most 20 chars
+  
+              </div>
+
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName" placeholder="Your Last Name" required>
+              </div>
+              <div  *ngIf="modifierForm.controls['lastName'].invalid && (modifierForm.controls['lastName'].touched ||
+              modifierForm.controls['lastName'].dirty)">
+              <div *ngIf="modifierForm.controls['lastName'].errors.required" class="red">
+                Last Name is required
+              </div>
+              <div *ngIf="modifierForm.controls['lastName'].errors.minlength" class="red">
+                Last Name must have at last 3 chars
+              </div>
+              <div *ngIf="modifierForm.controls['lastName'].errors.maxlength" class="red">
+                Last Name must have at most 20 chars
+              </div>
+
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Your Email" required>
+            </div>
+            <div *ngIf="modifierForm.controls['email'].invalid && (modifierForm.controls['email'].touched ||
+            modifierForm.controls['email'].dirty)">
+            <div *ngIf="modifierForm.controls['email'].errors.required" class="red">
+              Email is required
+            </div>
+            <div *ngIf="modifierForm.controls['email'].errors.email" class="red">
+              Email is invalid
+            </div>
+
+            </div>
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="tel" id="tel" formControlName="telephone" placeholder="Your Telephone" required>
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].invalid && (modifierForm.controls['telephone'].touched ||
+              modifierForm.controls['telephone'].dirty)">
+              <div *ngIf="modifierForm.controls['telephone'].errors.required" class="red">
+                Telephone is required
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].errors.maxlength" class="red">
+                Telephone must have at last 8 number
+              </div>
+              <div *ngIf="modifierForm.controls['telephone'].errors.minlength" class="red">
+                Telephone must have at most 8 number
+              </div>
+
+              </div>
+              <div class=" form-group mt-3 ">
+                <input type="text" class="form-control" name="adresse" id="adr" formControlName="adresse" placeholder="Your Adresse" required>
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].invalid && (modifierForm.controls['adresse'].touched ||
+              modifierForm.controls['adresse'].dirty)">
+              <div *ngIf="modifierForm.controls['adresse'].errors.required" class="red">
+                Adresse is required
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].errors.minlength" class="red">
+                Adresse must have at last 3 chars
+              </div>
+              <div *ngIf="modifierForm.controls['adresse'].errors.maxlength" class="red">
+                Adresse must have at most 50 chars
+              </div>
+
+              </div>
+              
+               
+            <div class="text-center"><button  (click)="modifier()"   type="submit">MODIFIER ADMIN</button></div>
+            <br>
+             
+            <div class="btn btn-warning"><button  (click)="annuler()" type="submit"  >ANNULER</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/modifier.webp" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

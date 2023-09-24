@@ -1,0 +1,147 @@
+<app-banner title="MODIFIER NOTES ELEVES"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>Modifier Les Notes Des Eleves</h1>
+
+          <form [formGroup]="modifierForm" action="" method="post" role="form" class="php-email-form">
+           
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="matiere" id="mat" formControlName="nom" placeholder=" Saisir nom de matiere" required>
+            </div>
+            <div *ngIf="modifierForm.controls['nom'].invalid && (modifierForm.controls['nom'].touched ||
+            modifierForm.controls['nom'].dirty)">
+            <div *ngIf="modifierForm.controls['nom'].errors.required" class="red">
+                Nom matiere est obligatoire
+
+            </div>
+            <div *ngIf="modifierForm.controls['nom'].errors.minlength" class="red">
+                Nom matiere est contient minumum 4 charactere
+
+            </div>
+            <div *ngIf="modifierForm.controls['nom'].errors.maxlength" class="red">
+                Nom matiere est contient maximum 20 charactere
+            </div>
+
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Sections</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="section"> 
+                  <option selected>Choose...</option>
+                  <option value="Litteraire">Litteraire</option>
+                  <option value="Science Informatique">Science Informatique</option>
+                  <option value="Science Experimentale">Science Experimentale</option>
+                  <option value="Science Techniques">Science Techniques</option>
+                  <option value="Mathematiques">Mathematiques</option>
+                  <option value="Economie Et Gestion">Economie Et Gestion</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Premiere Secondaire">Premiere Secondaire</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Niveau</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="niveau" >
+                  <option selected>Choose...</option>
+                  <option value="premiere annee">premiere annee</option>
+                  <option value="deuxieme annee">deuxieme annee</option>
+                  <option value="troisieme annee">troisieme annee</option>
+                  <option value="troisieme annee">quatrieme annee</option>
+                  
+                </select>
+              </div>
+            
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="note" id="note" formControlName="note" placeholder="Saisir note" required>
+              </div>
+              <div *ngIf="modifierForm.controls['note'].invalid && (modifierForm.controls['note'].touched ||
+            modifierForm.controls['note'].dirty)">
+            <div *ngIf="modifierForm.controls['note'].errors.required" class="red">
+                Note est obligatoire
+
+            </div>
+            <div *ngIf="modifierForm.controls['note'].errors.minlength" class="red">
+                Note est contient minumum 4 nombre
+
+            </div>
+            <div *ngIf="modifierForm.controls['note'].errors.maxlength" class="red">
+                Note est contient maximum 8 nombre
+            </div>
+
+            </div>
+
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="coff" id="coff" formControlName="coefficient"  placeholder="Saisir coefficient" required>
+              </div>
+              <div *ngIf="modifierForm.controls['coefficient'].invalid && (modifierForm.controls['coefficient'].touched ||
+              modifierForm.controls['coefficient'].dirty)">
+              <div *ngIf="modifierForm.controls['coefficient'].errors.required" class="red">
+                  Coefficient est obligatoire
+  
+              </div>
+              <div *ngIf="modifierForm.controls['coefficient'].errors.minlength" class="red">
+                  Coefficient est contient minumum 2 nombre
+  
+              </div>
+              <div *ngIf="modifierForm.controls['coefficient'].errors.maxlength" class="red">
+                  Coefficient est contient maximum 2 nombre
+              </div>
+  
+              </div>
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Semester</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="semester">
+                  <option selected>Choose...</option>
+                  <option value="Semester 1">Semester 1</option>
+                  <option value="Semester 2">Semester 2</option>
+                  <option value="Semester 3">Semester 3</option>
+                  
+                </select>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="rem" id="rem" formControlName="remarque" placeholder="Saisi remarque" required>
+              </div>
+              <div *ngIf="modifierForm.controls['remarque'].invalid && (modifierForm.controls['remarque'].touched ||
+              modifierForm.controls['remarque'].dirty)">
+              <div *ngIf="modifierForm.controls['remarque'].errors.required" class="red">
+                 Remarque est obligatoire
+  
+              </div>
+              <div *ngIf="modifierForm.controls['remarque'].errors.minlength" class="red">
+                  Remarque est contient minumum 4 charactere
+  
+              </div>
+              <div *ngIf="modifierForm.controls['remarque'].errors.maxlength" class="red">
+                  Remarque est contient maximum 10 charactere
+              </div>
+  
+              </div>
+
+              
+            <div class="text-center"><button  (click)="update()"  type="submit">Modifier Les Notes</button></div>
+            
+                 <div class="btn btn-warning"><button (click)="retour()"   type="submit">retour</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/eddit.webp" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

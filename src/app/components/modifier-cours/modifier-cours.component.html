@@ -1,0 +1,78 @@
+<app-banner title="Modifier Cours"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>MODIFIER COURS</h1>
+
+          <form [formGroup]="modifierForm"     action="forms/contact.php" method="post" role="form" class="php-email-form">
+            
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="text" id="text" formControlName="titre"  placeholder="Entrer Titre" required>
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].invalid && (modifierForm.controls['titre'].touched ||
+            modifierForm.controls['titre'].dirty)">
+            <div *ngIf="modifierForm.controls['titre'].errors.required" class="red" >
+              Titre is required
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].errors.minlength" class="red" >
+              Titre must have at least 3 chars
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].errors.maxlength" class="red" >
+              Titre must have at most 20 chars
+            </div>
+
+            </div>
+           
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="ref" id="ref"  formControlName="reference"  placeholder="Entrer Reference" required>
+              </div>
+              <div  *ngIf="modifierForm.controls['reference'].invalid && (modifierForm.controls['reference'].touched ||
+              modifierForm.controls['reference'].dirty)">
+              <div *ngIf="modifierForm.controls['reference'].errors.required" class="red" >
+                Reference is required
+              </div>
+              <div *ngIf="modifierForm.controls['reference'].errors.minlength" class="red" >
+                Reference must have at least 5 chars
+              </div>
+              <div *ngIf="modifierForm.controls['reference'].errors.maxlength" class="red" >
+                Reference must have at most 10 chars
+              </div>
+
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="sec" id="sec"  formControlName="section" placeholder="Entrer Section" required>
+              </div>
+              <div *ngIf="modifierForm.controls['section'].invalid && (modifierForm.controls['section'].touched ||
+              modifierForm.controls['section'].dirty)" >
+              <div *ngIf="modifierForm.controls['section'].errors.required" class="red" >
+                Section is required
+              </div>
+              <div *ngIf="modifierForm.controls['section'].errors.minlength" class="red" >
+                Section must have at least 3 chars
+              </div>
+              <div *ngIf="modifierForm.controls['section'].errors.maxlength" class="red" >
+                Section must have at most 20 chars
+              </div>
+
+
+              </div>
+             
+            <div class="text-center"><button (click)="modifierCours()"  type="submit">MODIFIER COURS</button></div> <br>
+            <div class="text-center"><button  (click)="retour()"  type="submit">ANNULER</button></div>
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/ed.jpg" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

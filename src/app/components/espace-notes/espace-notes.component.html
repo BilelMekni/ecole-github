@@ -1,0 +1,90 @@
+<app-banner title="ESPACE NOTES ELEVES"></app-banner>
+
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>Saisir Les Notes Des Eleves</h1>
+
+          <form #noteForm="ngForm"  (ngSubmit)="validate()"   action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="note.nomeleve" [ngModelOptions]="{standalone: true}"     placeholder=" Saisir nom des eleves" required>
+            </div>
+            
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="note.nom" [ngModelOptions]="{standalone: true}"     placeholder=" Saisir nom de matiere" required>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Sections</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01"   [(ngModel)]="note.section" [ngModelOptions]="{standalone: true}" >
+                  <option selected>Choose...</option>
+                  <option value="Litteraire">Litteraire</option>
+                  <option value="Science Informatique">Science Informatique</option>
+                  <option value="Science Experimentale">Science Experimentale</option>
+                  <option value="Science Techniques">Science Techniques</option>
+                  <option value="Mathematiques">Mathematiques</option>
+                  <option value="Economie Et Gestion">Economie Et Gestion</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Premiere Secondaire">Premiere Secondaire</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Niveau</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="note.niveau" [ngModelOptions]="{standalone: true}" >
+                  <option selected>Choose...</option>
+                  <option value="premiere annee">premiere annee</option>
+                  <option value="deuxieme annee">deuxieme annee</option>
+                  <option value="troisieme annee">troisieme annee</option>
+                  <option value="troisieme annee">quatrieme annee</option>
+                  
+                </select>
+              </div>
+            
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="note" id="note" [(ngModel)]="note.note" [ngModelOptions]="{standalone: true}"   placeholder="Saisir note" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="coff" id="coff" [(ngModel)]="note.coefficient" [ngModelOptions]="{standalone: true}"   placeholder="Saisir coefficient" required>
+              </div>
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Semester</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="note.semester" [ngModelOptions]="{standalone: true}" >
+                  <option selected>Choose...</option>
+                  <option value="Semester 1">Semester 1</option>
+                  <option value="Semester 2">Semester 2</option>
+                  <option value="Semester 3">Semester 3</option>
+                  
+                </select>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="rem" id="rem" [(ngModel)]="note.remarque" [ngModelOptions]="{standalone: true}"   placeholder="Saisi remarque" required>
+              </div>
+
+              
+            <div class="text-center"><button   type="submit">Valider</button></div>
+            
+                 <div class="btn btn-warning"><button (click)="annuler()"   type="submit">Annuler</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/saisir.jpg" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

@@ -1,0 +1,126 @@
+<app-banner title="RECHERCHER"></app-banner>
+<main id="main">
+
+
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+          <h1>Rechercher Enseignants</h1>
+
+          <form [formGroup]="searchForm" action="forms/contact.php" method="post" role="form" class="php-email-form">
+
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" formControlName="firstName"
+                placeholder="Nom Enseignants" required>
+            </div>
+            <div *ngIf="searchForm.controls['firstName'].invalid && (searchForm.controls['firstName'].touched ||
+                searchForm.controls['firstName'].dirty)">
+              <div *ngIf="searchForm.controls['firstName'].errors.required" class="red">
+                FirstName is required
+              </div>
+              <div *ngIf="searchForm.controls['firstName'].errors.minlength" class="red">
+                FirstName must have at last 3 chars
+              </div>
+              <div *ngIf="searchForm.controls['firstName'].errors.maxlength" class="red">
+                FirstName must have at most 20 chars
+
+              </div>
+
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="text" class="form-control" name="adr" id="adr" formControlName="adresse"
+                placeholder="Adresse" required>
+            </div>
+            <div *ngIf="searchForm.controls['adresse'].invalid && (searchForm.controls['adresse'].touched ||
+                searchForm.controls['adresse'].dirty)">
+              <div *ngIf="searchForm.controls['adresse'].errors.required" class="red">
+                Adresse is required
+              </div>
+              <div *ngIf="searchForm.controls['adresse'].errors.minlength" class="red">
+                Adresse must have at last 3 chars
+              </div>
+              <div *ngIf="searchForm.controls['adresse'].errors.maxlength" class="red">
+                Adresse must have at most 50 chars
+              </div>
+
+            </div>
+            <div class="col-md-6 form-group">
+              <select class="custom-select " formControlName="section">
+                <option selected>Section</option>
+                <option value="Mathematiques">Mathematiques</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Science Experimentale">Science Experimentale</option>
+                <option value="Technique">Technique</option>
+                <option value="Economie Et Gestion">Economie Et Gestion</option>
+                <option value="Physique">Physique</option>
+                <option value="Francais">Francais</option>
+                <option value="Anglais">Anglais</option>
+                <option value="Philosophie">Philosophie</option>
+                <option value="Dessin">Dessin</option>
+                <option value="Allemang">Allemang</option>>
+
+              </select>
+            </div>
+
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button (click)="search()" type="submit">Rechercher</button></div>
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv">
+          <img class="img-fluid" src="assets/img/rech.png" alt="" />
+        </div>
+
+      </div>
+
+    </div>
+    <div *ngFor="let s of searche">
+      <table class="table table-danger">
+        <thead>
+          <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Section</th>
+            <th scope="col">Experience</th>
+
+
+          </tr>
+        </thead>
+        <tr>
+
+          <td>{{s.firstName}}</td>
+          <td>{{s.lastName}}</td>
+          <td>{{s.email}}</td>
+          <td>{{s.telephone}}</td>
+          <td>{{s.adresse}}</td>
+          <td>{{s.section}}</td>
+          <td>{{s.experience}}</td>
+
+        </tr>
+      </table>
+
+    </div>
+    <div *ngIf="searche?.length== 0" style="color: crimson; font-size: 30px;   ">
+      Not Found Teachers
+    </div>
+  </section><!-- End Contact Section -->
+
+
+</main><!-- End #main -->

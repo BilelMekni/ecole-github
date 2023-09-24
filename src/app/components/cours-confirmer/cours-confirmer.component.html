@@ -1,0 +1,36 @@
+<app-banner title="COURS DES ELEVES CONFIRMES"></app-banner>
+<h1>BIENVENUE A LA COURS ELEVES CONFIRMER</h1>
+<table class="table table-borderless table-info">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Reference</th>
+        <th scope="col">Section</th>
+        <th scope="col">Cours</th>
+        <th scope="col">Status</th>
+        <th scope="col">Nom&&Prenom</th>
+        <th scope="col">Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/ccour.png" alt="" /></td>
+        <td>{{c.titre}}</td>
+        <td>{{c.reference}}</td>
+        <td>{{c.section}}</td>
+        <td>{{c.cours}}</td>
+        <td>{{c.status}}</td>
+        <td>{{c.teachers[0]?.firstName}}&&{{c.teachers[0]?.lastName}}</td>
+        <td>{{c.teachers[0]?.telephone}}</td>
+        
+      </tr>
+      
+      
+    </tbody>
+    <button type="button" (click)="retour()" class="get-started-btn">Retour</button>
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="livre"  [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

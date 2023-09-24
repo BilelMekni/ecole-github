@@ -1,0 +1,62 @@
+<app-banner title="LOGIN"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>LOGIN</h1>
+
+          <form [formGroup]="loginForm"  action="forms/contact.php" method="post" role="form" class="php-email-form">
+            
+            <div class="form-group mt-3">
+              <img class="img-fluid-icone" src="assets/img/email.png" alt="" />
+              <input type="email" class="form-control" name="email" id="email"  formControlName="email"  placeholder="Your Email" required>
+            </div>
+            <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].touched ||
+            loginForm.controls['email'].dirty)">
+            <div *ngIf="loginForm.controls['email'].errors.required" class="red">
+              Email is required
+          </div>
+          <div *ngIf="loginForm.controls['email'].errors.email" class="red">
+              Email is invalid
+          </div>
+
+            </div>
+              <div class="form-group mt-3">
+                <img class="img-fluid-icone" src="assets/img/pwd.png" alt="" />
+                <input type="password" class="form-control" name="pwd" id="pwd"  formControlName="password" placeholder="Your Password" required>
+              </div>
+              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched ||
+              loginForm.controls['password'].dirty)">
+              <div *ngIf="loginForm.controls['password'].errors.required" class="red">
+                Password is required
+            </div>
+            <div *ngIf="loginForm.controls['password'].errors.minlength"  class="red">
+               Password has benn at 8 chars
+            </div>
+            <div *ngIf="loginForm.controls['password'].errors.maxlength" class="red">
+                Password has benn most  12 chars
+            </div>
+
+              </div>
+              
+            <div class="text-center"><button (click)="login()"   type="submit">LOGIN</button></div>
+            <span style="color: red;">{{errorMsg}}</span> OU <br>
+                 <label>Creer un compte des eleves</label>  <br> 
+                 <div class="btn btn-warning"><button (click)="compteEleves()"   type="submit">Creer Compte</button></div>
+
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/login.jpg" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

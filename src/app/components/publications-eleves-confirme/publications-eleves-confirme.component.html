@@ -1,0 +1,34 @@
+<app-banner title="PUBLICATIONS ELEVES CONFIRMER"></app-banner>
+<h1>BIENVENUE AU PUBLICATIONS DES ELEVES</h1>
+<table class="table table-striped table-info">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">ID</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Message</th>
+        <th scope="col">NomEleves && PrenomEleves</th>
+        <th scope="col">TelephoneEleves</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elv of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/vrr.jpg" alt="" /></td>
+        <th scope="row">{{elv._id}}</th>
+        <td>{{elv.titre}}</td>
+        <td>{{elv.message}}</td>
+        <td>{{elv.students[0]?.firstName}} && {{elv.students[0]?.lastName}}</td>
+        <td>{{elv.students[0]?.telephone}}</td>
+        <td>    <button type="button" (click)="reponder()" class="get-started-btn">Reponder</button>        </td>
+      </tr>
+     
+      
+    </tbody>
+    <button type="button" (click)="retour()" class="get-started-btn">Retour</button>
+
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="public" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

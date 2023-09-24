@@ -1,0 +1,36 @@
+<h1>Liste Repondre Reponse Aux Eleves</h1>
+<table class="table table-info">
+    <thead>
+      <tr>
+        <th scope="col">Images</th>
+        <th scope="col">ID</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Message</th>
+        <th scope="col">Status</th>
+        <th scope="col">NomEnseignants</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/rep.png" alt="" /></td>
+        <th scope="row">{{r._id}}</th>
+        <td>{{r.title}}</td>
+        <td>{{r.description}}</td>
+        <td>{{r.status}}</td>
+        <td>{{r.repondis[0]?.firstName}} && {{r.repondis[0]?.lastName}} </td>
+        <td>{{r.repondis[0]?.telephone}} </td>
+        <td>{{r.repondis[0]?.adresse}} </td>
+        <button type="button" (click)="confirmeRepondre(r._id)" > <img src="assets/img/conf.jpg" height ="50" width="50" /></button>
+        <button type="button" (click)="deleteRepondre(r._id)" > <img src="assets/img/delet.png" height ="50" width="50" /></button>
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination 
+   [items]="publications"  [pageSize]="4"  (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

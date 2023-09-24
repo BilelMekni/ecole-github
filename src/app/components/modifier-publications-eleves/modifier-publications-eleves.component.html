@@ -1,0 +1,71 @@
+<app-banner title="MODIFIER PUBLICATIONS ELEVES"></app-banner>
+<section id="contact" class="contact">
+    
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+        
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+            <h1>Modifications Publications Des Eleves</h1>
+
+          <form  [formGroup]="modifierForm"  action="" method="post" role="form" class="php-email-form">
+            
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="titre" id="titre" formControlName="titre"     placeholder="Entrer Titre" required>
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].invalid && (modifierForm.controls['titre'].touched ||
+            modifierForm.controls.dirty)">
+            <div *ngIf="modifierForm.controls['titre'].errors.required" class="red">
+                Titre est obligatoire
+
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].errors.minlength" class="red">
+                Titre est contient min 3 charactere
+
+            </div>
+            <div *ngIf="modifierForm.controls['titre'].errors.maxlength" class="red">
+                Titre est contient max 50 charactere
+
+            </div>
+
+            </div>
+           
+              <div class="form-group mt-3">
+                <textarea id="w3review" name="w3review" rows="4" cols="95" formControlName="message"      > Entrer Message</textarea> 
+            </div>
+            <div *ngIf="modifierForm.controls['message'].invalid && (modifierForm.controls.touched ||
+            modifierForm.controls['message'].dirty)">
+            <div *ngIf="modifierForm.controls['message'].errors.required" class="red">
+                Message est obligatoire
+
+            </div>
+            <div *ngIf="modifierForm.controls['message'].errors.minlength" class="red">
+                Message est contient min 3 charactere
+
+            </div>
+            <div *ngIf="modifierForm.controls['message'].errors.maxlength" class="red">
+                Message est contient max 400 charactere
+
+            </div>
+
+            </div>
+              
+              
+             
+              
+            
+            <div class="text-center"  ><button type="submit" (click)="update()">Modifier Publications</button></div> <br>
+            <div class="text-center"><button type="submit" (click)="retour()"  >Retour</button></div>
+          </form>
+
+        </div>
+        <div style="margin:50px" class="serv"> 
+        <img class="img-fluid" src="assets/img/up.webp" alt="" />
+</div>
+      </div>
+
+    </div>
+  </section>

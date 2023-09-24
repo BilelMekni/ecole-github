@@ -1,0 +1,36 @@
+<h1>Bienvenue Au Tous Les Contacts</h1>
+<table class="table table-warning">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">ID</th>
+        <th scope="col">Nom Et Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Message</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of pageOfItems">
+        <td><img class="img-fluid" src="assets/img/adcontact.png" alt="" /></td>
+        <th scope="row">{{c._id}}</th>
+        <th scope="row">{{c.nomPrenom}}</th>
+        <td>{{c.email}}</td>
+        <td>{{c.titre}}</td>
+        <td>{{c.message}}</td>
+        <td>
+            <button type="button" (click)="deleteContact(c._id)" > <img src="assets/img/delet.png" height ="50" width="50" /></button>
+
+        </td>
+      </tr>
+      
+      
+    </tbody>
+
+  </table>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination
+   [items]="contact" (changePage)="onChangePage($event)"></jw-pagination>
+   </div>

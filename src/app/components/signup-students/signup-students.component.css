@@ -1,0 +1,17 @@
+.img-fluid{
+    left:760px;
+ top:42px;
+ position:absolute;
+ height: 400px;
+ 
+}
+h1{
+    color: blue;
+    background-color: mediumseagreen;
+    text-align: center;
+}
+
+/***les erreurs***/
+.red{
+    color: red;
+}

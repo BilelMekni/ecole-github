@@ -1,0 +1,23 @@
+h1{
+    color: blue;
+    background-color: mediumseagreen;
+    text-align: center;
+}
+
+
+.nav-item{
+    border-right: 0px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #7fc469;
+  color: #ffffff;
+}
+.tab-content{
+    color: #0e12ec;
+    font-size: 14px;
+    margin-top: 3px;
+}
+ul{
+    background-color: cornflowerblue;
+    border-radius: 0%;
+}
